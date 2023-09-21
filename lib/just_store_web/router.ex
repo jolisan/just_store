@@ -5,8 +5,11 @@ defmodule JustStoreWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", JustStoreWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: JustStore.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: JustStore.Schema
   end
 
   # Enable LiveDashboard in development
