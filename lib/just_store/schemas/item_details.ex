@@ -7,8 +7,6 @@ defmodule JustStore.Schemas.ItemDetails do
     field :description, :string
     field :price, :decimal
 
-    belongs_to :item, JustStore.Schemas.Item
-
     timestamps()
   end
 
