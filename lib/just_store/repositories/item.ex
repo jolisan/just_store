@@ -1,16 +1,15 @@
 defmodule JustStore.Repositories.ItemRepository do
-  import Ecto.Query
   alias JustStore.Schemas.Item
   alias JustStore.Repo
 
   defp create_item(cart_id, item_details_id, quantity) do
-    %Item{cart_id: cart_id, item_details_id: item_details_id, quantity: quantity}
+    %Item{}
     |> Item.changeset(%{cart_id: cart_id, item_details_id: item_details_id, quantity: quantity})
     |> Repo.insert()
   end
 
   defp find_item(cart_id, item_details_id) do
-    Repo.one(from(i in Item, where: i.cart_id == ^cart_id and i.item_details_id == ^item_details_id))
+    Repo.get_by(Item, cart_id: cart_id, item_details_id: item_details_id)
   end
 
   def add_item_to_cart(cart_id, item_details_id, quantity) do

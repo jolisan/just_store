@@ -5,7 +5,7 @@ defmodule JustStore.Schemas.ItemDetails do
   schema "item_details" do
     field :name, :string
     field :description, :string
-    field :price, :decimal
+    field :price, :float
 
     timestamps()
   end
