@@ -35,4 +35,5 @@ defmodule JustStoreWeb.Schema.Types.Cart do
     field :inserted_at, :string
     field :updated_at, :string
   end
+
 end
